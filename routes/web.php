@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
@@ -17,4 +18,4 @@ Route::post('/registration/path', [RegisterController::class, 'registration_path
 Route::post('/registration-nssf-validate', [RegisterController::class, 'validate_nssf'])->name('register.validate.nssf');
 Route::post('/registration-nssf-create', [RegisterController::class, 'create_nssf'])->name('register.nssf');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');

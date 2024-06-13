@@ -64,7 +64,7 @@
             <div class="col-12 row my-5">
                 <div class="col-6">
 
-                    <a href="#" class="btn btn-info w-100">Proceed</a>
+                    <a href="{{ route('dashboard') }}" class="btn btn-info w-100">Proceed</a>
                 </div>
                 <div class="col-6">
                     <a href="{{ route('landing') }}" class="btn text-black btn-outline-light w-100">Previous Step</a>
@@ -103,7 +103,7 @@
             <div class="col-12 row my-5">
                 <div class="col-6">
 
-                    <a href="#" class="btn btn-info w-100">Proceed</a>
+                    <a href="{{ route('dashboard') }}" class="btn btn-info w-100">Proceed</a>
                 </div>
                 <div class="col-6">
                     <a href="{{ route('landing') }}" class="btn text-black btn-outline-light w-100">Previous Step</a>
@@ -354,7 +354,7 @@
             <div class="col-12 row my-5">
                 <div class="col-6">
 
-                    <a href="#" class="btn btn-info w-100">Proceed</a>
+                    <a href="{{ route('dashboard') }}" class="btn btn-info w-100">Proceed</a>
                 </div>
                 <div class="col-6">
                     <a href="{{ route('landing') }}" class="btn text-black btn-outline-light w-100">Previous Step</a>
