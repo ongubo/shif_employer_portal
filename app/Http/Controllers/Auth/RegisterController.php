@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -74,8 +76,10 @@ class RegisterController extends Controller
     public function registration_setup()
     {
         $registration_type = session()->get('registration_path', 'new');
+        // dd(session()->get('employer'));
         return view('auth.setup', [
             'registration_type' => $registration_type,
+            'nssf_employer' => session()->get('employer'),
         ]);
     }
 
@@ -90,14 +94,50 @@ class RegisterController extends Controller
         } else if ($request->direction == 'register_sponsor') {
             session()->put('registration_path', 'sponsor');
         }
+
         return redirect()->route('register.setup');
     }
 
     public function validate_nssf(Request $request)
     {
-        // TODO create logic to validate NSSF
-        session()->put('registration_path', 'valid_nssf');
-        return redirect()->back()->with('success', 'Details validated succesfully. Please proceed to create your employer account');
+        $data = [
+            "username" => $request->username,
+            "password" => $request->password,
+            "employerId" => $request->employerId,
+        ];
+        try {
+            $verification_response = get_org_details($data);
+        } catch (\Throwable $th) {
+            Log::channel('app')->info('Verify Employer  error' . json_encode([
+                'error' => $th->getMessage(),
+                'request' => $data,
+                'date' => Carbon::now(),
+            ]));
+            return redirect()->back()->with('error', 'Unable to verify Employer details. Please try again later');
+        }
+
+        if ($verification_response->successful()) {
+            $verification_data = $verification_response->json();
+            $verification_data['data']['username'] = $data['username'];
+            $verification_data['data']['password'] = $data['password'];
+            session()->put('registration_path', 'valid_nssf');
+            session()->put('employer', $verification_data['employer']);
+            return redirect()->back()->with('success', 'Details validated succesfully. Please proceed to create your employer account'
+            );
+        } else {
+            try {
+                $message = '';
+                return redirect()->back()->with('error', $verification_response['message']);
+            } catch (\Throwable $th) {
+                Log::channel('app')->info('verify employer details response error' . json_encode([
+                    'error' => $th->getMessage(),
+                    'date' => Carbon::now(),
+                ]));
+                return redirect()->back()->with('error', $verification_response['message']);
+            }
+        }
+        // return true;
+
     }
 
     public function create_nssf(Request $request)

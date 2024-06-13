@@ -16,7 +16,7 @@ return [
     | messages to your logs. The value provided here should match one of
     | the channels present in the list of "channels" configured below.
     |
-    */
+     */
 
     'default' => env('LOG_CHANNEL', 'stack'),
 
@@ -29,7 +29,7 @@ return [
     | regarding deprecated PHP and library features. This allows you to get
     | your application ready for upcoming major versions of dependencies.
     |
-    */
+     */
 
     'deprecations' => [
         'channel' => env('LOG_DEPRECATIONS_CHANNEL', 'null'),
@@ -48,7 +48,7 @@ return [
     | Available Drivers: "single", "daily", "slack", "syslog",
     |                    "errorlog", "monolog", "custom", "stack"
     |
-    */
+     */
 
     'channels' => [
 
@@ -64,13 +64,62 @@ return [
             'level' => env('LOG_LEVEL', 'debug'),
             'replace_placeholders' => true,
         ],
-
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
-            'days' => env('LOG_DAILY_DAYS', 14),
+            'days' => 14,
             'replace_placeholders' => true,
+        ],
+        'app' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/system.log'),
+            'days' => 14,
+            'level' => env('LOG_LEVEL', 'debug'),
+            'permission' => 0666,
+        ],
+        'invoices' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/invoices.log'),
+            'days' => 14,
+            'level' => env('LOG_LEVEL', 'debug'),
+            'permission' => 0666,
+        ],
+        'transactions' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/transactions.log'),
+            'days' => 14,
+            'level' => env('LOG_LEVEL', 'debug'),
+            'permission' => 0666,
+        ],
+        'queues' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/queues.log'),
+            'days' => 14,
+            'level' => env('LOG_LEVEL', 'debug'),
+            'permission' => 0666,
+        ],
+        'callback' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/callback.log'),
+            'days' => 14,
+            'level' => env('LOG_LEVEL', 'debug'),
+            'permission' => 0666,
+        ],
+        'notifications' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/notifications.log'),
+            'days' => 14,
+            'level' => env('LOG_LEVEL', 'debug'),
+            'permission' => 0666,
+        ],
+
+        'stk' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/stk.log'),
+            'days' => 14,
+            'level' => env('LOG_LEVEL', 'debug'),
+            'permission' => 0666,
         ],
 
         'slack' => [
@@ -89,7 +138,7 @@ return [
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
-                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
+                'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
             ],
             'processors' => [PsrLogMessageProcessor::class],
         ],
