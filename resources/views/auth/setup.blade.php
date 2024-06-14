@@ -59,6 +59,57 @@
                                 placeholder="Enter Postal Address">
                         </div>
                     </div>
+                    <div class="row">
+                        <h6 class="card-title mb-2 text-muted">
+                            Admin Details
+                        </h6>
+                        <p>This Admin account will create other users in the system.</p>
+                        <hr>
+                        <div class="form-group mb-3 col-sm-12 col-md-6">
+                            <label class="text-black fw-semibold mb-1">First Name</label>
+                            <input class="form-control  border-info @error('first_name') is-invalid @enderror"
+                                name='first_name' type="text" required="" value='{{old("first_name")}}'
+                                placeholder="Enter First Name">
+
+
+                        </div>
+                        <div class="form-group mb-3 col-sm-12 col-md-6">
+                            <label class="text-black fw-semibold mb-1">Middle Name</label>
+                            <input class="form-control  border-info @error('middle_name') is-invalid @enderror"
+                                name='middle_name' type="text" required="" value='{{old("middle_name")}}'
+                                placeholder="Enter Middle Name">
+
+
+                        </div>
+                        <div class="form-group mb-3 col-sm-12 col-md-6">
+                            <label class="text-black fw-semibold mb-1">Last Name</label>
+                            <input class="form-control  border-info @error('last_name') is-invalid @enderror"
+                                name='last_name' type="text" required="" value='{{old("last_name")}}'
+                                placeholder="Enter Last Name">
+
+                        </div>
+
+
+                        <div class="form-group mb-3 col-sm-12 col-md-6">
+                            <label class="text-black fw-semibold mb-1">Phone</label>
+                            <input class="form-control  border-info @error('phone') is-invalid @enderror w-100"
+                                type="text" placeholder="07xxxxxxxx or +2547xxxxxxxx" name="phone"
+                                value='{{old("phone")}}'>
+                        </div>
+                        <div class="form-group mb-3 col-sm-12 col-md-6">
+                            <label class="text-black fw-semibold mb-1">Email</label>
+                            <input class="form-control  border-info @error('email') is-invalid @enderror" name='email'
+                                type="email" required="" value='{{old("email")}}' placeholder="Enter Email">
+
+
+                        </div>
+                        <div class="form-group mb-3 col-sm-12 col-md-6">
+                            <label class="text-black fw-semibold mb-1">Confirm Email</label>
+                            <span class='text-danger'>*</span>
+                            <input class="form-control   border-info @error('confirm_email') is-invalid @enderror"
+                                name='confirm_email' type="email" value='{{old("email")}}' placeholder="Enter Email">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 row my-5">
@@ -272,7 +323,7 @@
                                 type="text" placeholder="07xxxxxxxx or +2547xxxxxxxx" name="phone"
                                 value='{{ $nssf_employer["user"]["phone"]??""}}'>
                         </div>
-                        <div class="form-group mb-3 col-sm-12 col-md-12">
+                        <div class="form-group mb-3 col-sm-12 col-md-6">
                             <label class="text-black fw-semibold mb-1">Email</label>
                             <input class="form-control  border-info @error('email') is-invalid @enderror" name='email'
                                 type="email" required="" value='{{ $nssf_employer["user"]["email"]??""}}'
@@ -280,7 +331,7 @@
 
 
                         </div>
-                        <div class="form-group mb-3 col-sm-12 col-md-12">
+                        <div class="form-group mb-3 col-sm-12 col-md-6">
                             <label class="text-black fw-semibold mb-1">Confirm Email</label>
                             <span class='text-danger'>*</span>
                             <input class="form-control   border-info @error('confirm_email') is-invalid @enderror"
@@ -323,12 +374,6 @@
                             Organization Details
                         </h6>
                         <hr class="border-info">
-                        <div class="mb-3 col-sm-12 col-md-6">
-                            <label class="text-black fw-semibold mb-1">Organization Name</label>
-                            <span class='text-danger'>*</span>
-                            <input class="form-control   border-info @error('name') is-invalid @enderror" name='name'
-                                type="text" value='' placeholder="Enter Name">
-                        </div>
                         <div class="mb-3 col-sm-12 col-md-6">
                             <label class="text-black fw-semibold mb-1">ID Number</label>
                             <input class="form-control   border-info @error('id_number') is-invalid @enderror"
