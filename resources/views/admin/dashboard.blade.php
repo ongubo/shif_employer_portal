@@ -9,8 +9,7 @@
             <div class="card bg-primary">
                 <div class="card-body py-2 px-2">
                     <div class="d-flex gap-2 align-items-center">
-
-                        <div class="flex-grow-1 py-4">
+                        <div class="flex-grow-1 py-4 px-2">
                             <h5 class="text-white">Payroll Data</h5>
                             <p class="text-white-50 mb-0">You can Provide your members' Data by either uploading payroll
                                 file, Reusing saved

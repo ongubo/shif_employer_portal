@@ -48,14 +48,17 @@
             <ul class="navbar-nav pb-2" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Dashboard</span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href='#'>
-                        <i class=" bx bx-file "></i> <span data-key="t-dashboards">Home</span>
+                    <a class="nav-link menu-link text-primary" href='#'>
+                        <i class=" bx bx-file "></i>
+                        <h5 class="text-primary">Home</h5>
                     </a>
-                    <a class="nav-link menu-link" href='#'>
-                        <i class=" bx bx-file "></i> <span data-key="t-dashboards">Contributions</span>
+                    <a class="nav-link menu-link text-primary" href='#'>
+                        <i class=" bx bx-file "></i>
+                        <h5 class="text-primary">Contributions</h5>
                     </a>
-                    <a class="nav-link menu-link" href='#'>
-                        <i class=" bx bx-file "></i> <span data-key="t-dashboards">My Organization</span>
+                    <a class="nav-link menu-link text-primary" href='#'>
+                        <i class=" bx bx-file "></i>
+                        <h5 class="text-primary">My organization</h5>
                     </a>
                 </li>
 

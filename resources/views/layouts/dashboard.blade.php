@@ -34,35 +34,26 @@
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="{{asset('images/sha.svg')}}" style="height: 70px;" alt="" srcset="">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-dark.png" alt="" height="22">
+                                    <img src="{{asset('images/sha.svg')}}" style="height: 70px;" alt="" srcset="">
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="{{asset('images/sha.svg')}}" style="height: 70px;" alt="" srcset="">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-light.png" alt="" height="22">
+                                    <img src="{{asset('images/sha.svg')}}" style="height: 70px;" alt="" srcset="">
                                 </span>
                             </a>
                         </div>
-
-                        <button type="button"
-                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger shadow-none"
-                            id="topnav-hamburger-icon">
-                            <span class="hamburger-icon">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </span>
-                        </button>
+                        <div class="p-2">
+                            <img src="{{asset('images/sha.svg')}}" style="height: 50px;" alt="" srcset="">
+                        </div>
                     </div>
-
-
                 </div>
             </div>
         </header>
